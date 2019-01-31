@@ -12,3 +12,4 @@ Selenium Testing of https://quantummeditationsociety.org/
 - Chrome
 - Firefox
 - Windows/Linux
+- Remote Selenium
