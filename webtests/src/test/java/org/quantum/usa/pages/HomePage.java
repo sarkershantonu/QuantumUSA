@@ -969,6 +969,7 @@ public class HomePage extends PageBase {
     @CacheLookup
     public WebElement wplookStudio;
 
+    
 
     public HomePage(WebDriver driver) {
         super(driver);

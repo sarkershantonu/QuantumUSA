@@ -12,7 +12,9 @@ public class PropertyLoader {
         load("./properties/default/allure.properties");
         load("./properties/test.properties");
         load("./properties/webdriver.properties");
-        load("./properties/env." + System.getProperty("active.env") + ".properties");
+        load("./properties/env."
+                + System.getProperty("active.env")
+                + ".properties");
     }
     public static void load(final String propertyPath) throws IOException {
         Properties properties = new Properties();
@@ -20,6 +22,5 @@ public class PropertyLoader {
         for (String key : properties.stringPropertyNames()) {
             System.setProperty(key, properties.getProperty(key));
         }
-
     }
 }

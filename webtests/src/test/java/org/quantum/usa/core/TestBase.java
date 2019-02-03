@@ -1,7 +1,6 @@
 package org.quantum.usa.core;
 
 
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -30,6 +29,7 @@ public class TestBase extends LifecycleListener {
 
     @Override
     public void fire(StepFinishedEvent event) {
+
         logger.info(getOffset() + "@Step done " + names.poll());
     }
 
@@ -43,17 +43,20 @@ public class TestBase extends LifecycleListener {
 
     protected static WebDriver browser;
     protected static String baseUrl;
+
     @BeforeClass
     public static void initForAllClasses() throws IOException {
         PropertyLoader.loadProperties();
         browser = Browser.getInstance();
-        baseUrl=System.getProperty("app.url");
+        baseUrl = System.getProperty("app.url");
     }
+
     @AfterClass
     public static void cleanupClass() {
         Browser.close();
     }
-    public static void print(WebElement element){
+
+    public static void print(WebElement element) {
         System.out.println("TAG " + element.getTagName());
         System.out.println("TXT " + element.getText());
         System.out.println("VAL " + element.getAttribute("value"));

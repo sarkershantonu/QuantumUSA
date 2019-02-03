@@ -14,7 +14,7 @@
         <selenium.version>3.14.0</selenium.version>
         <testSuite>org.quantum.usa.suits.RegressionTests.class</testSuite>
         <lombok.version>1.16.8</lombok.version>
-        <jackson.version>2.8.6</jackson.version>
+        <jackson.version>2.9.7</jackson.version>
         <jetty.http.port>9300</jetty.http.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <allure.version>1.5.4</allure.version>
