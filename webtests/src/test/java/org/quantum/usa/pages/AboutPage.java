@@ -1,4 +1,4 @@
-package org.quantum.usa.tests;
+package org.quantum.usa.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.quantum.usa.pages.PageBase;

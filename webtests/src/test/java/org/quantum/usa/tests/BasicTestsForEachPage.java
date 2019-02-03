@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.quantum.usa.core.TestBase;
+import org.quantum.usa.pages.AboutPage;
 import org.quantum.usa.pages.HomePage;
 
 public class BasicTestsForEachPage extends TestBase {

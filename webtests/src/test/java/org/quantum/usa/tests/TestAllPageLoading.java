@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.quantum.usa.core.TestBase;
+import org.quantum.usa.pages.AboutPage;
 import org.quantum.usa.pages.HomePage;
 import org.quantum.usa.pages.PageBase;
 
@@ -19,7 +20,7 @@ public class TestAllPageLoading extends TestBase {
 
     @Parameterized.Parameters(name = "TEST : {0}")
     public static Collection testClasses(){
-        return Arrays.asList(new Class[]{HomePage.class,AboutPage.class});
+        return Arrays.asList(new Class[]{HomePage.class, AboutPage.class});
     }
 
     @Test
