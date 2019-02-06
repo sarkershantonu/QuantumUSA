@@ -1,4 +1,4 @@
-package org.automation.util;
+package org.quantum.usa.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
