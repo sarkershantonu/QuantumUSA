@@ -13,3 +13,18 @@ Selenium Testing of https://quantummeditationsociety.org/
 - Firefox
 - Windows/Linux
 - Remote Selenium
+
+# Website Testing
+
+# Environment 
+
+# Maven test
+mvn -X clean test
+
+# make report
+mvn site
+
+# See report locally
+mvn jetty:run
+
+(you can see localhost:9300)
