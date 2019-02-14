@@ -65,6 +65,7 @@ public abstract class PageBase {
         initElement(footerArea);
     }
 
+    @Step
     public <T extends PageBase> T clickOnPopUp(WebElement element, Class<T> aPage) throws IllegalAccessException, InstantiationException {
         Set<String> handles = driver.getWindowHandles();
         element.click();
