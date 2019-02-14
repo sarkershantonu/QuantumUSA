@@ -6,7 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -97,6 +101,16 @@ public final class Browser {
         disableDetailLoggingFirefox();
         driver = new FirefoxDriver();
         initBrowser();
+
+        FirefoxOptions options = new FirefoxOptions();
+        ProfilesIni allProfiles = new ProfilesIni();
+        FirefoxProfile selenium_profile = allProfiles.getProfile("selenium_profile");
+        options.setProfile(selenium_profile);
+        driver = new FirefoxDriver(options);
+        options.setBinary("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\pburgr\\Desktop\\geckodriver-v0.20.0-win64\\geckodriver.exe");
+        driver = new FirefoxDriver(options);
+
         return driver;
     }
 

@@ -8,8 +8,10 @@ import org.quantum.usa.pages.common.HeaderArea;
 public class AboutPage extends PageBase {
     public AboutPage(WebDriver aDriver) {
         super(aDriver);
+        //initElement();
         initStaticItems();
     }
+    @Override
     public void initStaticItems() {
         this.pageUrl = "/about/";
         this.pageLoadedText = "Our mission is to help every human being fulfill his true potential by awakening his inner power";
@@ -20,6 +22,7 @@ public class AboutPage extends PageBase {
 
     public AboutPage() {
         super();
+        //initElement();
         initStaticItems();
     }
 }

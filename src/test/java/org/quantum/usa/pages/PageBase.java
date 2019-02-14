@@ -10,16 +10,16 @@ import org.quantum.usa.pages.common.FooterArea;
 import org.quantum.usa.pages.common.HeaderArea;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import java.util.Set;
+
 public abstract class PageBase {
     public String name;
     public FooterArea footerArea;
     public HeaderArea headerArea;
     public int timeout = 15;
 
-    public PageBase(){
-        driver = Browser.getInstance();
-        initElement(this);
-    }
+
+
     public String title;
 
     public void setTitle(String title) {
@@ -41,25 +41,39 @@ public abstract class PageBase {
     public String pageUrl;
     public String pageLoadedText;
     public WebDriver driver;
-
+    public PageBase() {
+        driver = Browser.getInstance();
+        initElement(this);
+    }
     public PageBase(WebDriver aDriver) {
         this.driver = aDriver;
-         initElement(this);
-        //init footer
+        initElement(this);
     }
+
     @Step
     public abstract void initStaticItems();
+
     @Step
     public <T extends PageBase> void initElement(T t) {
         PageFactory.initElements(driver, t);
     }
+
     @Step
     public void initElement() {
-        PageFactory.initElements(driver, this);
+        initElement(this);
         initElement(headerArea);
         initElement(footerArea);
     }
 
+    public <T extends PageBase> T clickOnPopUp(WebElement element, Class<T> aPage) throws IllegalAccessException, InstantiationException {
+        Set<String> handles = driver.getWindowHandles();
+        element.click();
+        Set<String> newHandles = driver.getWindowHandles();
+        newHandles.removeAll(handles);//making sure, parent handles are not present to make life easy
+        driver.switchTo().window(newHandles.iterator().next());
+        return aPage.newInstance();
+
+    }
     @Step
     public PageBase verifyPageLoaded() {
         (new WebDriverWait(driver, timeout)).until(
@@ -92,6 +106,15 @@ public abstract class PageBase {
     }
 
     @Step
+    public void waitFor(final int second) {
+        try {
+            Thread.sleep(1000 * second);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Step
     public PageBase click(WebElement element) {
         element.click();
         return this;
@@ -112,8 +135,9 @@ public abstract class PageBase {
         Browser.getJs().executeAsyncScript(script);
 
     }
+
     @Step
-    public  void navigate(){
-        driver.get(System.getProperty("app.url")+pageUrl);
+    public void navigate(final String baseUrl) {
+        driver.get(baseUrl + pageUrl);
     }
 }

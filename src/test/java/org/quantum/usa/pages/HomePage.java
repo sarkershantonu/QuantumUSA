@@ -973,25 +973,19 @@ public class HomePage extends PageBase {
 
     public HomePage(WebDriver driver) {
         super(driver);
+
         initStaticItems();
-
+        //initStaticItems();
     }
 
-    /* public void initElement(){
-         initElement(this);
-         initElement(headerArea);
-         initElement(footerArea);
-     }*/
-    public HomePage(WebDriver driver, Map<String, String> data) {
-        this(driver);
-        this.data = data;
-    }
 
     public HomePage() {
         super();
+        //initElement();
         initStaticItems();
     }
 
+    @Override
     public void initStaticItems() {
         headerArea = new HeaderArea(this.driver);
         footerArea = new FooterArea(this.driver);

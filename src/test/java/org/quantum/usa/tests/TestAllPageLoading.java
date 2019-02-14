@@ -26,7 +26,7 @@ public class TestAllPageLoading extends TestBase {
     @Test
     public void testPageLoad() throws IllegalAccessException, InstantiationException {
         PageBase base = (PageBase) testClass.newInstance();
-        base.navigate();
+        base.navigate(baseUrl);
         base.verifyPageLoaded();
         Assert.assertEquals("Title Miss match:",base.title,base.getTitle());
     }
