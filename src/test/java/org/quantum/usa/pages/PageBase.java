@@ -73,7 +73,6 @@ public abstract class PageBase {
         newHandles.removeAll(handles);//making sure, parent handles are not present to make life easy
         driver.switchTo().window(newHandles.iterator().next());
         return aPage.newInstance();
-
     }
     @Step
     public PageBase verifyPageLoaded() {
