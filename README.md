@@ -21,11 +21,8 @@ Selenium Testing of https://quantummeditationsociety.org/
 # Maven test
 mvn -X clean test
 
-# make report
-mvn site
-
-# See report locally
-mvn jetty:run
+# make report & see report locally
+mvn site jetty:run
 
 (you can see localhost:9300)
 
