@@ -27,3 +27,12 @@ mvn site
 mvn jetty:run
 
 (you can see localhost:9300)
+
+# Features 
+- Logs 
+- Html Logs 
+- Allure reports 
+
+todo - ashot with allure
+
+
