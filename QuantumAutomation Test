@@ -1,0 +1,40 @@
+package QuantumAutomationTest;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class QuantumMeditationAutoMationTestRun {
+	WebDriver driver;
+
+	@Test
+	public void homePageElementCheck() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arash\\Desktop\\SQA2\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://quantummeditationsociety.org/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//a[text()='Login']")).click();
+		driver.findElement(By.xpath("//h1[@class='page-title']"));
+		boolean expectedLoginTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		Assert.assertTrue(expectedLoginTitle, "Login Title is not found");
+		driver.findElement(By.xpath("//a[text()='Register']")).click();
+		boolean expectedRegisterTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Assert.assertTrue(expectedRegisterTitle, "Register Page Title not loaded/found");
+		driver.findElement(By.xpath("//a[text()='About']")).click();
+		boolean expectedAboutTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Assert.assertTrue(expectedAboutTitle, "About Page Title not loaded/found");
+		driver.findElement(By.xpath("//a[text()='Quantum Living']")).click();
+		boolean expectedQuantumLivingTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Assert.assertTrue(expectedQuantumLivingTitle, "Quantum Page Title not loaded/found");
+		driver.findElement(By.xpath("//li[@id='menu-item-165']")).click();
+		boolean expectedMeditationTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Assert.assertTrue(expectedMeditationTitle, "Meditation Title not loaded/found");
+		driver.quit();
