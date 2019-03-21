@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class QuantumMeditationAutoMationTestRun {
 	WebDriver driver;
@@ -26,22 +27,18 @@ public class QuantumMeditationAutoMationTestRun {
 		driver.findElement(By.xpath("//a[text()='Register']")).click();
 		//Checking for Register title is displayed under register user
 		boolean expectedRegisterTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertTrue(expectedRegisterTitle, "Register Page Title not loaded/found");
 		//Checking for about section is working and is displayed
 		driver.findElement(By.xpath("//a[text()='About']")).click();
 		boolean expectedAboutTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertTrue(expectedAboutTitle, "About Page Title not loaded/found");
 		//Checking for Quantum Living page is visible and title is present
 		driver.findElement(By.xpath("//a[text()='Quantum Living']")).click();
 		boolean expectedQuantumLivingTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertTrue(expectedQuantumLivingTitle, "Quantum Page Title not loaded/found");
 		driver.findElement(By.xpath("//li[@id='menu-item-165']")).click();
 		//Checking for Meditation button page is visible annd Title is present
 		boolean expectedMeditationTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertTrue(expectedMeditationTitle, "Meditation Title not loaded/found");
 				
 				
