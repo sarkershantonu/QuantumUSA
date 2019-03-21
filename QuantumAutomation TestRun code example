@@ -43,4 +43,32 @@ public class QuantumMeditationAutoMationTestRun {
 		boolean expectedMeditationTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertTrue(expectedMeditationTitle, "Meditation Title not loaded/found");
+				
+				
+		//Meditation button sub menu
+		
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+
+		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[text()='Learn Meditation']")));
+
+		boolean expectedLeanrMeditationTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Assert.assertTrue(expectedLeanrMeditationTitle, "Lean Meditation Title not loaded/found");
+
+		WebElement meditationguide = driver.findElement(By.xpath("//a[text()='Meditation Guide']"));
+
+		executor.executeScript("arguments[0].click()", meditationguide);
+
+		boolean expectedMeditationGuideTitle = driver.findElement(By.xpath("//h1[text()='Quantum Meditation Guide']"))
+				.isDisplayed();
+		Assert.assertTrue(expectedMeditationGuideTitle, "Meditation Guide Title in page not found");
+
+		WebElement meditationTerms = driver.findElement(By.xpath("//li[@id='menu-item-167']/a"));
+
+		executor.executeScript("arguments[0].click();", meditationTerms);
+
+		boolean expectedQuantumTermsTitle = driver.findElement(By.xpath("//h1[@class='page-title']")).isDisplayed();
+		Assert.assertTrue(expectedQuantumTermsTitle, "Quantum Terms Title is missing");
+
 		driver.quit();
+
