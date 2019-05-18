@@ -32,5 +32,5 @@ mvn site jetty:run
 - Allure reports 
 
 todo - ashot with allure
-
+todo - isolate POM
 
