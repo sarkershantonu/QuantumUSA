@@ -17,6 +17,8 @@ Selenium Testing of https://quantummeditationsociety.org/
 # Website Testing
 
 # Environment 
+- windows/Ubuntu/Mac/iOS
+- Chrome/Safari
 
 # Maven test
 mvn -X clean test
