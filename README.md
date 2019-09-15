@@ -15,7 +15,10 @@ Selenium Testing of https://quantummeditationsociety.org/
 - Remote Selenium
 
 # Website Testing
-
+- Acceptance 
+- Module
+- Functional
+- Static styling 
 # Environment 
 - windows/Ubuntu/Mac/iOS
 - Chrome/Safari
